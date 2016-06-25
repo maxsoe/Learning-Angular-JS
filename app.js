@@ -7,6 +7,13 @@
     this.products = gems; // product is a property of controller
   });
 
+  app.controller('GalleryController', function(){
+    this.current = 0;
+    this.setCurrent = function (newValue){
+      this.current = newValue||0; //  If no value is passed in, set current to 0.
+    };
+  });
+
   app.controller('PanelController', function(){
     this.tab = 1;
     this.selectTab = function(setTab) {
