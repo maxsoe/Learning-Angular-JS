@@ -7,8 +7,19 @@
 
     <div ng-repeat="product in store.products">
       <h1>{{product.name}} </h1>
-      <h2>${{product.price}}</h2>
+      <h2>{{product.price | currency}}</h2>
       <p>{{product.description}}</p>
+      <!-- Image Gallery  -->
+      <div class="gallery" ng-show="product.images.length">
+        <div class="img-wrap">
+          <img ng-src="{{product.images[0]}}" />
+        </div>
+        <ul class="img-thumbnails clearfix">
+          <li class="small-image pull-left thumbnail" ng-repeat="image in product.images" >
+            <img ng-src="{{image}}" />
+          </li>
+        </ul>
+      </div>
       <!-- ng-show will only show the element if the value of the expression is true. ng-hide will hide the elemtn if the value of the expression is true -->
       <button ng-show="store.product.canPurchase">Add to cart</button>
     </div>
