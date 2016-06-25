@@ -8,7 +8,6 @@
     <div ng-repeat="product in store.products">
       <h1>{{product.name}} </h1>
       <h2>{{product.price | currency}}</h2>
-      <p>{{product.description}}</p>
       <!-- Image Gallery  -->
       <div class="gallery" ng-show="product.images.length" ng-controller="GalleryController as gallery">
         <div class="img-wrap">
