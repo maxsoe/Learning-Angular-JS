@@ -5,10 +5,16 @@
     <link rel="stylesheet" type="text/css" href="custom.css" />
   </head>
   <body ng-controller="StoreController as store">
+    <!--  Store Header  -->
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">- an Angular store -</h2>
+    </header>
 
-    <div ng-repeat="product in store.products">
-      <h1>{{product.name}} </h1>
-      <h2>{{product.price | currency}}</h2>
+    <!--  Product Container  -->
+    <div class="list-group-item" ng-repeat="product in store.products">
+      <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+
       <!-- Image Gallery  -->
       <div class="gallery" ng-show="product.images.length" ng-controller="GalleryController as gallery">
         <div class="img-wrap">
@@ -21,6 +27,7 @@
         </ul>
       </div>
 
+      <!-- Product Tabs  -->
       <section ng-controller="PanelController as panel">
         <ul class="nav nav-pills">
           <li ng-class="{active:panel.isSelected(1)}">
@@ -33,6 +40,8 @@
             <a href ng-click="panel.selectTab(3)">Reviews</a>
           </li>
         </ul>
+
+        <!--  Description Tab's Content  -->
         <div class="panel" ng-show="panel.isSelected(1)">
           <h4>Description</h4>
           <p>{{product.description}}</p>
